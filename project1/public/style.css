@@ -1,0 +1,510 @@
+:root {
+    --main-indent-inside: 0.5rem;
+    --main-padding: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+
+    background-color: #ffefd5;
+    color: #333;
+}
+
+.main-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 3rem;
+    border-radius: 1rem;
+    max-width: 64rem;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+    background-color: #ffffff;
+}
+
+.title {
+    margin-top: 1.3rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+
+    font-weight: 700;
+    text-align: center;
+
+    color: #5a3e2b;
+    background-color: #f4d3b6;
+}
+
+.login {
+    display: grid;
+    grid-template-areas:
+        "login-label login-input"
+        "login-button login-button"
+    ;
+    gap: 1rem;
+}
+
+.login-title {
+    margin-bottom: 2rem;
+
+    font-weight: 700;
+    text-align: center;
+
+    color: #5a3e2b;
+}
+
+.login-label {
+    grid-area: login-label;
+
+    text-align: right;
+}
+
+.login-input {
+    grid-area: login-input;
+
+    border: 1px inset #6b7280;
+
+    line-height: 1.5;
+}
+
+.error-message {
+    padding: 1rem;
+
+    text-align: center;
+
+    color: red;
+}
+
+.button {
+    grid-area: login-button;
+
+    padding: 0.65rem;
+    cursor: pointer;
+    width: 100%;
+
+    font-size: 1rem;
+
+    color: white;
+}
+
+.login-button {
+    background-color: #a05a2c;
+}
+
+.login-button:hover {
+    background-color: #7f4719;
+}
+
+.data-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.logout-form {
+    position: absolute;
+    top: 1rem;
+    left: 4rem;
+    z-index: 10;
+}
+
+.logout-button {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+
+    background-color: #7f8c8d;
+}
+
+.logout-button:hover {
+    background-color: #636e72;
+}
+
+.welcome-text {
+    margin-bottom: 1rem;
+
+    text-align: center;
+
+    color: #a66e2e;
+}
+
+.game-button {
+    background-color: #d9a25f;
+
+    color: #fff;
+}
+
+.game-button:hover {
+    background-color: #c78644;
+}
+
+.guess-form-content {
+    padding: 1rem;
+}
+
+.card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    background-color: #fff;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    font-weight: 600;
+    text-align: center;
+}
+
+.guess-button {
+    background-color: #e08937;
+    color: #fff;
+}
+
+.guess-button:hover {
+    background-color: #cf6f1c;
+}
+
+.message-box {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    font-weight: 500;
+}
+
+.message-info {
+    background-color: #dbeafe;
+    color: #1e3a8a;
+}
+
+.message-incorrect {
+    background-color: #fce8e8;
+    color: #7c2d2d;
+}
+
+.message-error {
+    background-color: #fef6d8;
+    color: #8a4b0e;
+}
+
+.message-success {
+    background-color: #dcfce7;
+    color: #065f46;
+}
+
+.message-illegal {
+    background-color: #ffe4e6;
+    color: #b91c1c;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    margin-top: 1.5rem;
+}
+
+.guess-form {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.75rem;
+
+    width: 100%;
+}
+
+.card.guess-form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.guess-input {
+    transition: border-color 0.2s, box-shadow 0.2s;
+    flex-grow: 1;
+
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.375rem;
+
+    font-size: 1rem;
+}
+
+.guess-input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.guess-form .guess-button {
+    white-space: nowrap;
+}
+
+.guesses-title {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f4d3b6;
+    padding-bottom: 0.5rem;
+
+    color: #5a3e2b;
+}
+
+.guessed-words {
+    list-style-type: none;
+
+    line-height: 1.6;
+    padding-left: 1rem;
+
+    text-align: left;
+
+    color: #4b5563;
+}
+
+.guessed-word {
+    margin-bottom: 0.5rem;
+
+    text-align: left;
+}
+
+.game-tips {
+    margin-bottom: 1rem;
+}
+
+.tip-content {
+    font-size: 0.75rem;
+}
+
+.highlight-word {
+    font-weight: 700;
+
+    color: #2d3748;
+}
+
+.possible-title {
+    margin-bottom: 1rem;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.possible-words {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+
+    font-size: 1rem;
+
+    color: #4b5563;
+}
+
+.possible-word-item {
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: #f9fafb;
+}
+
+.possible-word-item.guessed {
+    border-color: #ef4444;
+
+    font-weight: bold;
+
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.possible-word-item.guessed-success {
+    font-weight: bold;
+
+    background-color: #d1fae5;
+    border-color: #10b981;
+    color: #065f46;
+}
+
+.recent-title {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f4d3b6;
+    padding-bottom: 0.5rem;
+
+    color: #5a3e2b;
+}
+
+.recent-guess {
+    padding-left: 1rem;
+}
+
+.history-title {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f4d3b6;
+    padding-bottom: 0.5rem;
+
+    color: #5a3e2b;
+}
+
+.scores-summary {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #d4a574;
+
+    background-color: #fdf7f0;
+}
+
+.personal-best {
+    margin: 0.25rem 0;
+
+    color: #5a3e2b;
+}
+
+.games-played {
+    margin: 0.25rem 0;
+
+    color: #5a3e2b;
+}
+
+.scores-list {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid #d4a574;
+
+    background-color: #f9f9f9;
+}
+
+.best-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+
+    background-color: #ffd700;
+    color: #5a3e2b;
+}
+
+.leaderboard-title {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f4d3b6;
+    padding-bottom: 0.5rem;
+
+    color: #5a3e2b;
+}
+
+.leaderboard-summary {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #d4a574;
+
+    background-color: #fdf7f0;
+}
+
+@media (min-width: 40rem) {
+    .card.guess-form-content {
+        flex-direction: row;
+    }
+
+    .possible-words {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 48rem) {
+    .game-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .possible-words {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 64rem) {
+    .possible-words {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 40rem) {
+    .login {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .login-label {
+        grid-area: form-label;
+
+        font-size: 1rem;
+
+        text-align: start;
+    }
+
+    .login-input {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    .button {
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .game-button:hover {
+        transform: translateY(-1px);
+    }
+
+    .guess-button:hover {
+        transform: translateY(-1px);
+    }
+
+    .possible-word-item {
+        transition: transform 0.1s ease-in-out;
+    }
+
+    .possible-word-item:hover {
+        transform: translateY(-2px);
+    }
+}
